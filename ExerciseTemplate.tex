@@ -1,0 +1,122 @@
+\documentclass[a4paper,10pt]{article}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set up basic variables for the Homework
+
+% Enter your personal data here
+\newcommand{\name}{Mustermann}
+\newcommand{\firstname}{Max}
+\newcommand{\mail}{max.mustermann@student.tuwien.ac.at}
+\newcommand{\registration}{1345678}
+
+% Set exercise name
+\newcommand{\exercise}{Demo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Set the language to German
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+
+% Enable colouring
+\usepackage{xcolor} 
+
+% Set layout
+\usepackage[a4paper, portrait, margin=1.5in, left=1in, right=1in, headheight=33pt]{geometry}
+
+% Enable a fancy header for your convenience
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\firstname\ \name\\
+\small{\registration \\
+\mail}}
+\lhead{\exercise}
+\rfoot{Page \thepage}
+
+% Set up formating without slide in first line
+\usepackage{parskip}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set code background colour
+\definecolor{light-gray}{gray}{0.95}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set up code highlighting
+\usepackage{minted}
+\usemintedstyle{manni}
+\setminted{frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos, bgcolor=light-gray}
+\setmintedinline{frame=none, framesep=2mm, baselinestretch=0, fontsize=\footnotesize, linenos, bgcolor=white}
+
+% Add an arrowlist
+\usepackage{enumitem}
+\newlist{arrowlist}{itemize}{1}
+\setlist[arrowlist]{label=$\rightarrow$}
+
+% Enable graph drawing
+\usepackage{tikz}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%          DOCUMENT GOES HERE          %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\section*{Demosektion}
+Demodokument
+
+\begin{minted}{java}
+
+// This is a Java comment
+String test = "Test!";
+System.out.println(test);
+
+if (true) {
+	Test test1 = new Test();
+	test1.testit();
+}
+\end{minted}
+
+Hier kommt eine Beispielliste:
+
+\begin{arrowlist}
+\item Ein Beispiel
+\item Noch ein Beispiel
+\end{arrowlist}
+
+\section*{Sektion 2 - Graphen}
+Hier ist ein Demograph.
+
+\begin{tikzpicture}[scale=2]
+	% Nodes start here
+	\node (A) at (1,0) [circle,draw] {A};
+	\node (B) at (1,1.2) [circle,draw] {B};
+	\node (C) at (2,1.1) [circle,draw] {C};
+	\node (D) at (0.5,1) [circle,draw] {D};
+	\node (E) at (2,0) [circle,draw] {E};
+
+	% Lines start here
+	\draw[-] (B) to (D);
+	\draw[-] (A) to (D);
+	\draw[-] (E) to (D);
+	\draw[-] (E) to (B);
+	\draw[-] (E) to (A);
+	\draw[-] (E) to (C);
+	\draw[-] (C) to (B);
+
+\end{tikzpicture}
+
+\section*{Voraussetzungen}
+Alle Pakete werden automatisch installiert.\\
+Für minted wird jedoch Python benötigt. Dies kann von der offiziellen Seite installiert werden. Bei der Installation muss angegeben werden, dass die PATH-Variable gesetzt werden soll. Danach muss Pygments installiert werden. Dafür eine Kommandozeile öffnen und 
+\mint{bash}|pip3 install Pygments|
+eingeben. Danach muss in der \LaTeX -Umgebung der Pdf- \LaTeX -Befehl (unter Optionen/TexMaker konfigurieren) noch auf \mintinline{bash}{pdflatex -synctex=1 -interaction=nonstopmode --shell-escape \%.tex} erweitert werden.
+Nach einem Neustart von TexMaker sollte das Dokument problemlos kompilieren.
+
+\end{document}
