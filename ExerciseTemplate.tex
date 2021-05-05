@@ -17,7 +17,7 @@
 
 
 % Set the language to German
-\usepackage[german]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 
 % Enable colouring
@@ -40,6 +40,10 @@
 % Set up formating without slide in first line
 \usepackage{parskip}
 \usepackage{amssymb}
+\usepackage{amsmath}
+
+% Enable hyperlinks
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set code background colour
@@ -68,8 +72,8 @@
 
 \begin{document}
 
-\section*{Demosektion}
-Demodokument
+\section*{Demo section}
+Demo document
 
 \begin{minted}{java}
 
@@ -83,15 +87,15 @@ if (true) {
 }
 \end{minted}
 
-Hier kommt eine Beispielliste:
+This is an example list:
 
 \begin{arrowlist}
-\item Ein Beispiel
-\item Noch ein Beispiel
+\item An example
+\item Another example
 \end{arrowlist}
 
-\section*{Sektion 2 - Graphen}
-Hier ist ein Demograph.
+\section*{Section 2 - Graphs}
+This is a demo graph.
 
 \begin{tikzpicture}[scale=2]
 	% Nodes start here
@@ -113,10 +117,9 @@ Hier ist ein Demograph.
 \end{tikzpicture}
 
 \section*{Voraussetzungen}
-Alle Pakete werden automatisch installiert.\\
-Für minted wird jedoch Python benötigt. Dies kann von der offiziellen Seite installiert werden. Bei der Installation muss angegeben werden, dass die PATH-Variable gesetzt werden soll. Danach muss Pygments installiert werden. Dafür eine Kommandozeile öffnen und 
+All necessary packages should be installed automagically.\\
+The package \texttt{minted} requires Python, which can be installed from \href{https://www.python.org/downloads/}{the official download page}. Make sure to enable to have the \texttt{path} variable set during installation. You then need to install Pygments using the command line:
 \mint{bash}|pip3 install Pygments|
-eingeben. Danach muss in der \LaTeX -Umgebung der Pdf- \LaTeX -Befehl (unter Optionen/TexMaker konfigurieren) noch auf \mintinline{bash}{pdflatex -synctex=1 -interaction=nonstopmode --shell-escape \%.tex} erweitert werden.
-Nach einem Neustart von TexMaker sollte das Dokument problemlos kompilieren.
+Lastly you need to add the \texttt{--shell-escape} flag to the \LaTeX command of your build environment.
 
 \end{document}
