@@ -1,4 +1,5 @@
 This is a collection of simple templates for LaTeX documents.
+
 *exercise-template* contains a template suited for simple exercises for an assignment for example.<br>
 *report-template* is a simple template for short reports. It supports basically the same features as the first one, but has a slightly different layout more suited for report-style exercises.
 
