@@ -1,0 +1,157 @@
+\documentclass[a4paper,%
+11pt,%
+DIV=14,
+%headsepline,%
+headings=normal,
+parskip=full
+]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{graphicx}
+\usepackage{lmodern} 
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{hyperref}
+
+
+% Enable colouring
+\usepackage[table]{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set code background colour
+\definecolor{light-gray}{gray}{0.95}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set up code highlighting
+\usepackage{minted}
+\usemintedstyle{manni}
+\setminted{frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos, bgcolor=light-gray}
+\setmintedinline{frame=none, framesep=2mm, baselinestretch=0, fontsize=\footnotesize, linenos, bgcolor=white}
+
+% Add an arrowlist
+\usepackage{enumitem}
+\newlist{arrowlist}{itemize}{1}
+\setlist[arrowlist]{label=$\rightarrow$}
+
+% Enable graph drawing
+\usepackage{tikz}
+
+\lstset{basicstyle=\ttfamily,frame=single}
+
+
+\begin{document}
+\thispagestyle{plain.scrheadings}
+\noindent
+\hrule height 1px
+\vspace*{-1ex}
+\begin{minipage}[t]{.45\linewidth}
+\strut\vspace*{-\baselineskip}\newline
+\hspace*{1ex}\includegraphics[height=.9cm]{./figs/Inf-Logo_black_en.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\linewidth}
+\flushright{
+Some research group...\\%
+Who am i actually working for?\\%
+You can comment this out if not needed.}
+\end{minipage}
+\vspace*{1ex}
+\hrule 
+\vspace*{-1ex}
+\begin{center}
+{\LARGE\textbf{Some random article}}\\
+{\large{}%
+  \today\\
+  Demo-document\\
+}
+\end{center}
+\vspace*{2ex}
+\hrule 
+\vspace*{1ex}
+\vspace*{-2.5ex}
+1: First name, Last name, Matriculation number\\
+2: First name, Last name, Matriculation number
+
+\vspace*{1ex}
+\hrule 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%          DOCUMENT GOES HERE          %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace*{2ex}
+This is a simple template to write reports in. It has all the features a normal \LaTeX document for this purpose should have.
+
+\section{Supported features}
+This document does support two different forms of code highlighting:\\
+A simplified style that looks like this:
+
+\begin{lstlisting}
+par (0<=i<n) {
+  a[i] = a[i] + b[i] * c[i];
+}
+\end{lstlisting}
+
+And a fully featured one using the \texttt{minted} package:
+
+\begin{minted}{java}
+
+// This is a Java comment
+String test = "Test!";
+System.out.println(test);
+
+if (true) {
+	Test test1 = new Test();
+	test1.testit();
+}
+\end{minted}
+
+It also supports a simple arrowlist:
+
+\begin{arrowlist}
+\item An example
+\item Another example
+\end{arrowlist}
+
+And extensive graph drawing using the \texttt{tikz} package:
+\begin{figure}
+\begin{center}
+
+\begin{tikzpicture}[scale=2]
+	% Nodes start here
+	\node (A) at (1,0) [circle,draw] {A};
+	\node (B) at (1,1.2) [circle,draw] {B};
+	\node (C) at (2,1.1) [circle,draw] {C};
+	\node (D) at (0.5,1) [circle,draw] {D};
+	\node (E) at (2,0) [circle,draw] {E};
+
+	% Lines start here
+	\draw[-] (B) to (D);
+	\draw[-] (A) to (D);
+	\draw[-] (E) to (D);
+	\draw[-] (E) to (B);
+	\draw[-] (E) to (A);
+	\draw[-] (E) to (C);
+	\draw[-] (C) to (B);
+
+\end{tikzpicture}
+\end{center}
+ \caption{Test graph}
+\end{figure}
+
+\pagebreak
+\section{Page style}
+As you can see, this document automatically sets headers according to the current section.
+
+% If you need a bibliography, uncomment this block
+% If you want to use this, create a file called "bibliograhpy.bib". We are using normal bibtex for this template.
+%\bibliographystyle{IEEEtran}
+%\bibliography{bibliography}
+
+\end{document}
